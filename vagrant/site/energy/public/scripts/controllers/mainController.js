@@ -292,7 +292,7 @@
                 },
                 calculate = function(plan, usedKw){
                     var monthlyResult = [],
-                        annualTotalCost = [];
+                        annualTotalCost = 0;
 
                     switch(plan.type.toLowerCase()){
                         case "incremental":
