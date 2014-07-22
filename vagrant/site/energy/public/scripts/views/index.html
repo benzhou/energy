@@ -1,4 +1,36 @@
 <div>
     <select id="plans" ng-model="selectedPlan" ng-options="plan.name for plan in data.plans"></select>
+    <input type="text" ng-model="monthlyUsedKwh"/>
+    <a class="button" ng-click="reCalculate()">Re-Calculate</a>
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h1 class="page-header">Cost Grid based on {{selectedPlan.name}}</h1>
 
+            <h2 class="sub-header">Annual Cost Per month breakdown</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Month</th>
+                            <th>Total Cost</th>
+                            <th>Used Kwh</th>
+                            <th>Usage Cost</th>
+                            <th>Base Cost</th>
+                            <th>AddOn-per-Kwh Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="aMonthCost in annualCost.monthlyCost" n>
+                            <td>{{aMonthCost.month}}</td>
+                            <td>{{aMonthCost.totalPrice}}</td>
+                            <td>{{aMonthCost.usedKw}}</td>
+                            <td>{{aMonthCost.usagePrice}}</td>
+                            <td>{{aMonthCost.basePrice}}</td>
+                            <td>{{aMonthCost.addOnPerKwhPrice}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
